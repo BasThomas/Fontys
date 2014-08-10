@@ -21,7 +21,6 @@
     self = [super initWithStyle:style];
     if (self)
     {
-        NSLog(@"test");
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         _session = [NSURLSession sessionWithConfiguration:config
                                                  delegate:self
@@ -42,7 +41,7 @@
 
 - (void)fetchData
 {
-    NSString *requestString = @"";
+    NSString *requestString = @"https://secapi.fontys.nl/json.ashx?app=f4IcdWfO7U2UcjGpIPjMGA&rooster_institute=FTHV&rooster_class=TEI7&rooster_week=20121119";
     NSURL *url = [NSURL URLWithString:requestString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     

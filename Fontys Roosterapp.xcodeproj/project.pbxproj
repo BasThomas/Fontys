@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A76C053719980CED00C3663C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A76C053619980CED00C3663C /* Settings.bundle */; };
 		A7E74BA41997F48200F5D3FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA31997F48200F5D3FB /* Foundation.framework */; };
 		A7E74BA61997F48200F5D3FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA51997F48200F5D3FB /* CoreGraphics.framework */; };
 		A7E74BA81997F48200F5D3FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA71997F48200F5D3FB /* UIKit.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A76C053619980CED00C3663C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 		A7E74BA01997F48200F5D3FB /* Fontys Roosterapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fontys Roosterapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E74BA31997F48200F5D3FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7E74BA51997F48200F5D3FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,6 +127,7 @@
 				A7E74BDB1997F73700F5D3FB /* BTBSubjectTableViewController.m */,
 				A7E74BDD1997F82600F5D3FB /* BTBSubject.h */,
 				A7E74BDE1997F82600F5D3FB /* BTBSubject.m */,
+				A76C053619980CED00C3663C /* Settings.bundle */,
 				A7E74BBB1997F48200F5D3FB /* Images.xcassets */,
 				A7E74BAA1997F48200F5D3FB /* Supporting Files */,
 			);
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A76C053719980CED00C3663C /* Settings.bundle in Resources */,
 				A7E74BBC1997F48200F5D3FB /* Images.xcassets in Resources */,
 				A7E74BAE1997F48200F5D3FB /* InfoPlist.strings in Resources */,
 				A7E74BB71997F48200F5D3FB /* Main.storyboard in Resources */,
@@ -470,6 +474,7 @@
 				A7E74BD41997F48200F5D3FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7E74BD51997F48200F5D3FB /* Build configuration list for PBXNativeTarget "Fontys RoosterappTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +483,7 @@
 				A7E74BD71997F48200F5D3FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
