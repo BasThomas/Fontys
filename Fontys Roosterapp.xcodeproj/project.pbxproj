@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7E74BA41997F48200F5D3FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA31997F48200F5D3FB /* Foundation.framework */; };
+		A7E74BA61997F48200F5D3FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA51997F48200F5D3FB /* CoreGraphics.framework */; };
+		A7E74BA81997F48200F5D3FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA71997F48200F5D3FB /* UIKit.framework */; };
+		A7E74BAE1997F48200F5D3FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7E74BAC1997F48200F5D3FB /* InfoPlist.strings */; };
+		A7E74BB01997F48200F5D3FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BAF1997F48200F5D3FB /* main.m */; };
+		A7E74BB41997F48200F5D3FB /* BTBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BB31997F48200F5D3FB /* BTBAppDelegate.m */; };
+		A7E74BB71997F48200F5D3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E74BB51997F48200F5D3FB /* Main.storyboard */; };
+		A7E74BBC1997F48200F5D3FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E74BBB1997F48200F5D3FB /* Images.xcassets */; };
+		A7E74BC31997F48200F5D3FB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BC21997F48200F5D3FB /* XCTest.framework */; };
+		A7E74BC41997F48200F5D3FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA31997F48200F5D3FB /* Foundation.framework */; };
+		A7E74BC51997F48200F5D3FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA71997F48200F5D3FB /* UIKit.framework */; };
+		A7E74BCD1997F48200F5D3FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7E74BCB1997F48200F5D3FB /* InfoPlist.strings */; };
+		A7E74BCF1997F48200F5D3FB /* Fontys_RoosterappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BCE1997F48200F5D3FB /* Fontys_RoosterappTests.m */; };
+		A7E74BDC1997F73700F5D3FB /* BTBSubjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BDB1997F73700F5D3FB /* BTBSubjectTableViewController.m */; };
+		A7E74BDF1997F82600F5D3FB /* BTBSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BDE1997F82600F5D3FB /* BTBSubject.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7E74BC61997F48200F5D3FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7E74B981997F48200F5D3FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7E74B9F1997F48200F5D3FB;
+			remoteInfo = "Fontys Roosterapp";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A7E74BA01997F48200F5D3FB /* Fontys Roosterapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fontys Roosterapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7E74BA31997F48200F5D3FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A7E74BA51997F48200F5D3FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A7E74BA71997F48200F5D3FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A7E74BAB1997F48200F5D3FB /* Fontys Roosterapp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fontys Roosterapp-Info.plist"; sourceTree = "<group>"; };
+		A7E74BAD1997F48200F5D3FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A7E74BAF1997F48200F5D3FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A7E74BB11997F48200F5D3FB /* Fontys Roosterapp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fontys Roosterapp-Prefix.pch"; sourceTree = "<group>"; };
+		A7E74BB21997F48200F5D3FB /* BTBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBAppDelegate.h; sourceTree = "<group>"; };
+		A7E74BB31997F48200F5D3FB /* BTBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBAppDelegate.m; sourceTree = "<group>"; };
+		A7E74BB61997F48200F5D3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A7E74BBB1997F48200F5D3FB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A7E74BC11997F48200F5D3FB /* Fontys RoosterappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fontys RoosterappTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7E74BC21997F48200F5D3FB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A7E74BCA1997F48200F5D3FB /* Fontys RoosterappTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fontys RoosterappTests-Info.plist"; sourceTree = "<group>"; };
+		A7E74BCC1997F48200F5D3FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A7E74BCE1997F48200F5D3FB /* Fontys_RoosterappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fontys_RoosterappTests.m; sourceTree = "<group>"; };
+		A7E74BD91997F4BA00F5D3FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		A7E74BDA1997F73700F5D3FB /* BTBSubjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBSubjectTableViewController.h; sourceTree = "<group>"; };
+		A7E74BDB1997F73700F5D3FB /* BTBSubjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBSubjectTableViewController.m; sourceTree = "<group>"; };
+		A7E74BDD1997F82600F5D3FB /* BTBSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBSubject.h; sourceTree = "<group>"; };
+		A7E74BDE1997F82600F5D3FB /* BTBSubject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBSubject.m; sourceTree = "<group>"; };
+		A7E74BE0199800EB00F5D3FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		A7E74BE1199800EB00F5D3FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7E74B9D1997F48200F5D3FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E74BA61997F48200F5D3FB /* CoreGraphics.framework in Frameworks */,
+				A7E74BA81997F48200F5D3FB /* UIKit.framework in Frameworks */,
+				A7E74BA41997F48200F5D3FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E74BBE1997F48200F5D3FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E74BC31997F48200F5D3FB /* XCTest.framework in Frameworks */,
+				A7E74BC51997F48200F5D3FB /* UIKit.framework in Frameworks */,
+				A7E74BC41997F48200F5D3FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A7E74B971997F48200F5D3FB = {
+			isa = PBXGroup;
+			children = (
+				A7E74BA91997F48200F5D3FB /* Fontys Roosterapp */,
+				A7E74BC81997F48200F5D3FB /* Fontys RoosterappTests */,
+				A7E74BA21997F48200F5D3FB /* Frameworks */,
+				A7E74BA11997F48200F5D3FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7E74BA11997F48200F5D3FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7E74BA01997F48200F5D3FB /* Fontys Roosterapp.app */,
+				A7E74BC11997F48200F5D3FB /* Fontys RoosterappTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7E74BA21997F48200F5D3FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7E74BA31997F48200F5D3FB /* Foundation.framework */,
+				A7E74BA51997F48200F5D3FB /* CoreGraphics.framework */,
+				A7E74BA71997F48200F5D3FB /* UIKit.framework */,
+				A7E74BC21997F48200F5D3FB /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7E74BA91997F48200F5D3FB /* Fontys Roosterapp */ = {
+			isa = PBXGroup;
+			children = (
+				A7E74BB21997F48200F5D3FB /* BTBAppDelegate.h */,
+				A7E74BB31997F48200F5D3FB /* BTBAppDelegate.m */,
+				A7E74BB51997F48200F5D3FB /* Main.storyboard */,
+				A7E74BDA1997F73700F5D3FB /* BTBSubjectTableViewController.h */,
+				A7E74BDB1997F73700F5D3FB /* BTBSubjectTableViewController.m */,
+				A7E74BDD1997F82600F5D3FB /* BTBSubject.h */,
+				A7E74BDE1997F82600F5D3FB /* BTBSubject.m */,
+				A7E74BBB1997F48200F5D3FB /* Images.xcassets */,
+				A7E74BAA1997F48200F5D3FB /* Supporting Files */,
+			);
+			path = "Fontys Roosterapp";
+			sourceTree = "<group>";
+		};
+		A7E74BAA1997F48200F5D3FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7E74BAB1997F48200F5D3FB /* Fontys Roosterapp-Info.plist */,
+				A7E74BAC1997F48200F5D3FB /* InfoPlist.strings */,
+				A7E74BAF1997F48200F5D3FB /* main.m */,
+				A7E74BB11997F48200F5D3FB /* Fontys Roosterapp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7E74BC81997F48200F5D3FB /* Fontys RoosterappTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7E74BCE1997F48200F5D3FB /* Fontys_RoosterappTests.m */,
+				A7E74BC91997F48200F5D3FB /* Supporting Files */,
+			);
+			path = "Fontys RoosterappTests";
+			sourceTree = "<group>";
+		};
+		A7E74BC91997F48200F5D3FB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7E74BCA1997F48200F5D3FB /* Fontys RoosterappTests-Info.plist */,
+				A7E74BCB1997F48200F5D3FB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7E74B9F1997F48200F5D3FB /* Fontys Roosterapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7E74BD21997F48200F5D3FB /* Build configuration list for PBXNativeTarget "Fontys Roosterapp" */;
+			buildPhases = (
+				A7E74B9C1997F48200F5D3FB /* Sources */,
+				A7E74B9D1997F48200F5D3FB /* Frameworks */,
+				A7E74B9E1997F48200F5D3FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fontys Roosterapp";
+			productName = "Fontys Roosterapp";
+			productReference = A7E74BA01997F48200F5D3FB /* Fontys Roosterapp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7E74BC01997F48200F5D3FB /* Fontys RoosterappTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7E74BD51997F48200F5D3FB /* Build configuration list for PBXNativeTarget "Fontys RoosterappTests" */;
+			buildPhases = (
+				A7E74BBD1997F48200F5D3FB /* Sources */,
+				A7E74BBE1997F48200F5D3FB /* Frameworks */,
+				A7E74BBF1997F48200F5D3FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7E74BC71997F48200F5D3FB /* PBXTargetDependency */,
+			);
+			name = "Fontys RoosterappTests";
+			productName = "Fontys RoosterappTests";
+			productReference = A7E74BC11997F48200F5D3FB /* Fontys RoosterappTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7E74B981997F48200F5D3FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BTB;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Bas Broek";
+				TargetAttributes = {
+					A7E74BC01997F48200F5D3FB = {
+						TestTargetID = A7E74B9F1997F48200F5D3FB;
+					};
+				};
+			};
+			buildConfigurationList = A7E74B9B1997F48200F5D3FB /* Build configuration list for PBXProject "Fontys Roosterapp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				nl,
+			);
+			mainGroup = A7E74B971997F48200F5D3FB;
+			productRefGroup = A7E74BA11997F48200F5D3FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7E74B9F1997F48200F5D3FB /* Fontys Roosterapp */,
+				A7E74BC01997F48200F5D3FB /* Fontys RoosterappTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7E74B9E1997F48200F5D3FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E74BBC1997F48200F5D3FB /* Images.xcassets in Resources */,
+				A7E74BAE1997F48200F5D3FB /* InfoPlist.strings in Resources */,
+				A7E74BB71997F48200F5D3FB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E74BBF1997F48200F5D3FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E74BCD1997F48200F5D3FB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7E74B9C1997F48200F5D3FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E74BDF1997F82600F5D3FB /* BTBSubject.m in Sources */,
+				A7E74BDC1997F73700F5D3FB /* BTBSubjectTableViewController.m in Sources */,
+				A7E74BB01997F48200F5D3FB /* main.m in Sources */,
+				A7E74BB41997F48200F5D3FB /* BTBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E74BBD1997F48200F5D3FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E74BCF1997F48200F5D3FB /* Fontys_RoosterappTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7E74BC71997F48200F5D3FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7E74B9F1997F48200F5D3FB /* Fontys Roosterapp */;
+			targetProxy = A7E74BC61997F48200F5D3FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7E74BAC1997F48200F5D3FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7E74BAD1997F48200F5D3FB /* en */,
+				A7E74BE1199800EB00F5D3FB /* nl */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A7E74BB51997F48200F5D3FB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7E74BB61997F48200F5D3FB /* Base */,
+				A7E74BD91997F4BA00F5D3FB /* en */,
+				A7E74BE0199800EB00F5D3FB /* nl */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A7E74BCB1997F48200F5D3FB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7E74BCC1997F48200F5D3FB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7E74BD01997F48200F5D3FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A7E74BD11997F48200F5D3FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7E74BD31997F48200F5D3FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fontys Roosterapp/Fontys Roosterapp-Prefix.pch";
+				INFOPLIST_FILE = "Fontys Roosterapp/Fontys Roosterapp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A7E74BD41997F48200F5D3FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fontys Roosterapp/Fontys Roosterapp-Prefix.pch";
+				INFOPLIST_FILE = "Fontys Roosterapp/Fontys Roosterapp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A7E74BD61997F48200F5D3FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fontys Roosterapp.app/Fontys Roosterapp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fontys Roosterapp/Fontys Roosterapp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Fontys RoosterappTests/Fontys RoosterappTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A7E74BD71997F48200F5D3FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fontys Roosterapp.app/Fontys Roosterapp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fontys Roosterapp/Fontys Roosterapp-Prefix.pch";
+				INFOPLIST_FILE = "Fontys RoosterappTests/Fontys RoosterappTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7E74B9B1997F48200F5D3FB /* Build configuration list for PBXProject "Fontys Roosterapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7E74BD01997F48200F5D3FB /* Debug */,
+				A7E74BD11997F48200F5D3FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7E74BD21997F48200F5D3FB /* Build configuration list for PBXNativeTarget "Fontys Roosterapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7E74BD31997F48200F5D3FB /* Debug */,
+				A7E74BD41997F48200F5D3FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A7E74BD51997F48200F5D3FB /* Build configuration list for PBXNativeTarget "Fontys RoosterappTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7E74BD61997F48200F5D3FB /* Debug */,
+				A7E74BD71997F48200F5D3FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7E74B981997F48200F5D3FB /* Project object */;
+}
