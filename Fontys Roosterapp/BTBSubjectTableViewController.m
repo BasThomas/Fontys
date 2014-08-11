@@ -16,9 +16,9 @@
 
 @implementation BTBSubjectTableViewController
 
-- (instancetype)initWithStyle:(UITableViewStyle)style
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self)
     {
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -27,14 +27,15 @@
                                             delegateQueue:nil];
         [self fetchData];
     }
+    
     return self;
 }
 
 - (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential *))completionHandler
 {
     // Use login to fill username and password here.
-    NSURLCredential *credential = [NSURLCredential credentialWithUser:@""
-                                                             password:@""
+    NSURLCredential *credential = [NSURLCredential credentialWithUser:@"306880@student.fontys.nl"
+                                                             password:@"Superheat88"
                                                           persistence:NSURLCredentialPersistenceForSession];
     completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
 }
@@ -51,7 +52,7 @@
                                       NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                                                            options:0
                                                                                              error:nil];
-                                      NSLog(@"%@", json);
+                                      NSLog(@"JSON: %@", json);
                                   }];
     [dataTask resume];
 }
