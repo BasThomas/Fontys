@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Subject Table View Controller - Time Table-->
+        <!--Course Table View Controller - Time Table-->
         <scene sceneID="F2t-Yq-De4">
             <objects>
-                <tableViewController id="QQE-GO-ivU" customClass="BTBSubjectTableViewController" sceneMemberID="viewController">
+                <tableViewController id="QQE-GO-ivU" customClass="BTBCourseTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="X3Z-Lb-ukR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,13 @@
                             <outlet property="delegate" destination="QQE-GO-ivU" id="6Fu-mk-WQw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Time Table" id="6Al-V6-ixT"/>
+                    <navigationItem key="navigationItem" title="Time Table" id="6Al-V6-ixT">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="vR5-7O-xao">
+                            <connections>
+                                <action selector="logout:" destination="QQE-GO-ivU" id="7cg-gL-0r0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="jiV-Iv-rFf">
                         <autoresizingMask key="autoresizingMask"/>
                         <attributedString key="attributedTitle"/>
@@ -68,15 +74,19 @@
                             <action selector="refresh:" destination="QQE-GO-ivU" eventType="valueChanged" id="tkC-44-XPU"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="logoutButton" destination="vR5-7O-xao" id="uJY-KR-bmR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnh-1w-RVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="106"/>
+            <point key="canvasLocation" x="397" y="106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RcF-kD-wf9">
             <objects>
                 <navigationController definesPresentationContext="YES" id="u12-hx-1da" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1B9-hr-D3r"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DzI-fs-lz6">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

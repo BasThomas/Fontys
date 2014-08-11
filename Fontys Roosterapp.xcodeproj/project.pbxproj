@@ -24,7 +24,7 @@
 		A7E74BC51997F48200F5D3FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA71997F48200F5D3FB /* UIKit.framework */; };
 		A7E74BCD1997F48200F5D3FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7E74BCB1997F48200F5D3FB /* InfoPlist.strings */; };
 		A7E74BCF1997F48200F5D3FB /* Fontys_RoosterappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BCE1997F48200F5D3FB /* Fontys_RoosterappTests.m */; };
-		A7E74BDC1997F73700F5D3FB /* BTBSubjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BDB1997F73700F5D3FB /* BTBSubjectTableViewController.m */; };
+		A7E74BDC1997F73700F5D3FB /* BTBCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BDB1997F73700F5D3FB /* BTBCourseTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +63,8 @@
 		A7E74BCC1997F48200F5D3FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7E74BCE1997F48200F5D3FB /* Fontys_RoosterappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fontys_RoosterappTests.m; sourceTree = "<group>"; };
 		A7E74BD91997F4BA00F5D3FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		A7E74BDA1997F73700F5D3FB /* BTBSubjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBSubjectTableViewController.h; sourceTree = "<group>"; };
-		A7E74BDB1997F73700F5D3FB /* BTBSubjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBSubjectTableViewController.m; sourceTree = "<group>"; };
+		A7E74BDA1997F73700F5D3FB /* BTBCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBCourseTableViewController.h; sourceTree = "<group>"; };
+		A7E74BDB1997F73700F5D3FB /* BTBCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBCourseTableViewController.m; sourceTree = "<group>"; };
 		A7E74BE0199800EB00F5D3FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		A7E74BE1199800EB00F5D3FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,8 +142,8 @@
 				A7E74BB51997F48200F5D3FB /* Main.storyboard */,
 				A78940AD1998BE3D00A4D026 /* BTBSubjectTableViewCell.h */,
 				A78940AE1998BE3D00A4D026 /* BTBSubjectTableViewCell.m */,
-				A7E74BDA1997F73700F5D3FB /* BTBSubjectTableViewController.h */,
-				A7E74BDB1997F73700F5D3FB /* BTBSubjectTableViewController.m */,
+				A7E74BDA1997F73700F5D3FB /* BTBCourseTableViewController.h */,
+				A7E74BDB1997F73700F5D3FB /* BTBCourseTableViewController.m */,
 				A712523E1998ADD5002D7444 /* Object Classes */,
 				A76C053619980CED00C3663C /* Settings.bundle */,
 				A7E74BBB1997F48200F5D3FB /* Images.xcassets */,
@@ -281,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7E74BDC1997F73700F5D3FB /* BTBSubjectTableViewController.m in Sources */,
+				A7E74BDC1997F73700F5D3FB /* BTBCourseTableViewController.m in Sources */,
 				A7E74BB01997F48200F5D3FB /* main.m in Sources */,
 				A78940AC1998B7D000A4D026 /* BTBCourse.m in Sources */,
 				A7E74BB41997F48200F5D3FB /* BTBAppDelegate.m in Sources */,

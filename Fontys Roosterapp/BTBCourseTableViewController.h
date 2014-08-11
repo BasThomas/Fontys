@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BTBSubjectTableViewController : UITableViewController
+@interface BTBCourseTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *subjects;
 

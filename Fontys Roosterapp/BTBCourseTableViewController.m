@@ -6,16 +6,18 @@
 //  Copyright (c) 2014 Bas Broek. All rights reserved.
 //
 
-#import "BTBSubjectTableViewController.h"
+#import "BTBCourseTableViewController.h"
 #import "BTBSubjectTableViewCell.h"
 
-@interface BTBSubjectTableViewController () <NSURLSessionDataDelegate>
+@interface BTBCourseTableViewController () <NSURLSessionDataDelegate>
 
 @property (nonatomic) NSURLSession *session;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
+
 @end
 
-@implementation BTBSubjectTableViewController
+@implementation BTBCourseTableViewController
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -66,6 +68,12 @@
                                       }
                                   }];
     [dataTask resume];
+}
+
+- (IBAction)logout:(id)sender
+{
+    // Get rid of all things here...
+    NSLog(@"Logging out...");
 }
 
 - (void)viewDidLoad
