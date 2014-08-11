@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="u12-hx-1da">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="u12-hx-1da">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -13,28 +14,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubjectCell" id="9pW-3X-tRN">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubjectCell" id="9pW-3X-tRN" customClass="BTBSubjectTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9pW-3X-tRN" id="Zej-lt-8Kh">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rf-hf-oLC">
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rf-hf-oLC">
                                             <rect key="frame" x="105" y="11" width="195" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="195" id="vMO-V8-HJd"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Log-hC-Vtx">
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Log-hC-Vtx">
                                             <rect key="frame" x="20" y="11" width="57" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Log-hC-Vtx" firstAttribute="leading" secondItem="Zej-lt-8Kh" secondAttribute="leading" constant="20" id="1eO-Wr-U69"/>
+                                        <constraint firstAttribute="bottom" secondItem="Log-hC-Vtx" secondAttribute="bottom" constant="11" id="6nJ-Tk-m1M"/>
+                                        <constraint firstAttribute="bottom" secondItem="0rf-hf-oLC" secondAttribute="bottom" constant="11" id="Bi6-rL-L7a"/>
+                                        <constraint firstAttribute="trailing" secondItem="0rf-hf-oLC" secondAttribute="trailing" constant="20" id="Dsw-jm-ZHY"/>
+                                        <constraint firstItem="0rf-hf-oLC" firstAttribute="top" secondItem="Zej-lt-8Kh" secondAttribute="top" constant="11" id="i97-1a-4rJ"/>
+                                        <constraint firstItem="Log-hC-Vtx" firstAttribute="top" secondItem="Zej-lt-8Kh" secondAttribute="top" constant="11" id="iyk-9o-vca"/>
+                                        <constraint firstItem="0rf-hf-oLC" firstAttribute="leading" secondItem="Log-hC-Vtx" secondAttribute="trailing" constant="28" id="vTC-ws-Xtr"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subjectLabel" destination="0rf-hf-oLC" id="Bh7-hA-dcP"/>
+                                    <outlet property="timeLabel" destination="Log-hC-Vtx" id="f0A-tP-lVe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

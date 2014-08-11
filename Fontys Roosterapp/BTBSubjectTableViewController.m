@@ -7,6 +7,7 @@
 //
 
 #import "BTBSubjectTableViewController.h"
+#import "BTBSubjectTableViewCell.h"
 
 @interface BTBSubjectTableViewController () <NSURLSessionDataDelegate>
 
@@ -35,7 +36,7 @@
 {
     // Use login to fill username and password here.
     NSURLCredential *credential = [NSURLCredential credentialWithUser:@"306880@student.fontys.nl"
-                                                             password:@"Superheat88"
+                                                             password:@"BxF-LZJ-D6s-erH"
                                                           persistence:NSURLCredentialPersistenceForSession];
     completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
 }
@@ -49,10 +50,20 @@
     NSURLSessionTask *dataTask = [self.session dataTaskWithRequest:request
                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
                                   {
-                                      NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                                                           options:0
-                                                                                             error:nil];
-                                      NSLog(@"JSON: %@", json);
+                                      //NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                      //                                                     options:0
+                                      //                                                       error:&error];
+                                      NSString *json = [[NSString alloc] initWithData:data
+                                                                             encoding:NSUTF8StringEncoding];
+                                      
+                                      if (json)
+                                      {
+                                          //NSLog(@"JSON: %@", json);
+                                      }
+                                      else
+                                      {
+                                          //NSLog(@"%@", [error localizedDescription]);
+                                      }
                                   }];
     [dataTask resume];
 }
@@ -66,6 +77,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
 }
 
 - (void)didReceiveMemoryWarning
