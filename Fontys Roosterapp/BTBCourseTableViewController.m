@@ -45,6 +45,7 @@
 
 - (void)fetchData
 {
+    // Prepare requestString
     NSString *requestString = @"https://secapi.fontys.nl/json.ashx?app=f4IcdWfO7U2UcjGpIPjMGA&rooster_institute=FTHV&rooster_class=TEI7&rooster_week=20121119";
     NSURL *url = [NSURL URLWithString:requestString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -60,7 +61,7 @@
                                       
                                       if (json)
                                       {
-                                          //NSLog(@"JSON: %@", json);
+                                          NSLog(@"JSON: %@", json);
                                       }
                                       else
                                       {
@@ -74,6 +75,10 @@
 {
     // Get rid of all things here...
     NSLog(@"Logging out...");
+    
+    
+    [self performSegueWithIdentifier:@"logoutSegue"
+                              sender:self];
 }
 
 - (void)viewDidLoad
@@ -166,7 +171,6 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -174,7 +178,7 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSLog(@"Logging out...");
 }
-*/
 
 @end
