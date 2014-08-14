@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BTBSubjectTableViewCell.h"
+#import "BTBCourse.h"
 
-@interface BTBCourseTableViewController : UITableViewController
+@interface BTBCourseTableViewController : UITableViewController <NSURLConnectionDelegate>
 
-@property (nonatomic, strong) NSMutableArray *subjects;
+@property (nonatomic, strong) NSMutableArray *courses;
 
 @end

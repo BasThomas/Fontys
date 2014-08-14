@@ -10,7 +10,7 @@
 
 @interface BTBUser : NSObject
 
-@property (nonatomic, weak) NSString *username;
-@property (nonatomic, weak) NSString *password;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *password;
 
 @end

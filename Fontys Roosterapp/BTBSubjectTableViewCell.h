@@ -10,7 +10,8 @@
 
 @interface BTBSubjectTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subjectLabel;
 
 @end

@@ -27,10 +27,12 @@
 
 - (void)updateFonts
 {
-    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    UIFont *bodyFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+	UIFont *captionFont = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
     
-    self.timeLabel.font = font;
-    self.subjectLabel.font = font;
+	self.startTimeLabel.font = captionFont;
+	self.endTimeLabel.font = captionFont;
+    self.subjectLabel.font = bodyFont;
 }
 
 - (void)layoutSubviews

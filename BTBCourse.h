@@ -10,9 +10,11 @@
 
 @interface BTBCourse : NSObject
 
-@property (nonatomic, weak) NSString *courseCode;
-@property (nonatomic, weak) NSString *teacherAbbr;
-@property (nonatomic, weak) NSString *buildingCode;
-@property (nonatomic, weak) NSString *classRoom;
+@property (nonatomic, strong) NSString *startTime;
+@property (nonatomic, strong) NSString *endTime;
+@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString *text;
+
+- (instancetype) init;
 
 @end
