@@ -12,6 +12,16 @@
 
 @interface BTBCourseTableViewController : UITableViewController <NSURLConnectionDelegate>
 
+@property (nonatomic, strong) NSMutableData *urlData;
 @property (nonatomic, strong) NSMutableArray *courses;
+
+@property (nonatomic, strong) NSString *apiKey;
+@property (nonatomic, strong) NSString *institute;
+@property (nonatomic, strong) NSString *timetableClass;
+@property (nonatomic, strong) NSString *week;
+
+@property (nonatomic) BOOL foundSubjects;
+
+- (NSString *)currentWeek;
 
 @end

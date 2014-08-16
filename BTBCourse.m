@@ -25,6 +25,8 @@
         self.startTime = startTime;
         self.endTime = endTime;
         self.date = date;
+		self.subjectDate = [self stringToDate:self.date];
+		
         self.text = text;
         
 		[self textToTypes];
@@ -91,7 +93,6 @@
             if (i != (amountOfLocations - 1))
             {
                 teachers = [teachers stringByAppendingFormat:@"%@, ", splitText[i]];
-                NSLog(@"%@", splitText[i]);
             }
             else
             {
@@ -102,6 +103,25 @@
         self.teacherName = teachers;
         self.subjectName = splitText[amountOfLocations];
     }
+}
+
+- (NSDate *)stringToDate:(NSString *)stringDate
+{
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDate *subjectDate = [[NSDate alloc] init];
+	
+	int day = [[stringDate substringWithRange:NSMakeRange(6, 2)] intValue];
+	int month = [[stringDate substringWithRange:NSMakeRange(4, 2)] intValue];
+	int year = [[stringDate substringWithRange:NSMakeRange(0, 4)] intValue];
+	
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	[components setDay:day];
+	[components setMonth:month];
+	[components setYear:year];
+	
+	subjectDate = [calendar dateFromComponents:components];
+	
+	return subjectDate;
 }
 
 @end

@@ -23,6 +23,12 @@
         {
 			self.courses = [[NSMutableArray alloc] init];
 			
+			self.apiKey = @"f4IcdWfO7U2UcjGpIPjMGA";
+			self.institute = @"FHI";
+			self.timetableClass = @"s32";
+			[self currentWeek];
+			self.week = @"20140901";
+			
 			[self fetchData];
             
             NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
@@ -30,12 +36,69 @@
                               selector:@selector(updateTableForDynamicType)
                                   name:UIContentSizeCategoryDidChangeNotification
                                 object:nil];
-            
-            //[self updateTableForDynamicType];
         }
     
     return self;
 }
+
+#pragma mark - Helper functions
+
+- (NSString *)currentWeek
+{
+	NSDate *today = [[NSDate alloc] init];
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	components = [calendar components:NSWeekdayCalendarUnit
+							 fromDate:today];
+	
+	NSUInteger weekdayToday = [components weekday];
+	NSInteger daysToMonday = (9 - weekdayToday) % 7;
+	
+	NSDateFormatter *apiFormat = [[NSDateFormatter alloc] init];
+	[apiFormat setDateFormat:@"yyyyMMdd"];
+	
+	NSDate *sectionDate = [[NSDate alloc] init];
+	
+	if ([components weekday] == 1 || [components weekday] == 7)
+	{
+		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * daysToMonday];
+		self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
+	}
+	else
+	{
+		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -daysToMonday];
+		self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
+	}
+	
+	return self.week;
+}
+
+#pragma mark - IBActions
+
+- (IBAction)refresh:(UIRefreshControl *)sender
+{
+	// Refreshing...
+    NSLog(@"Refreshing...");
+	
+	self.foundSubjects = NO;
+	[self.courses removeAllObjects];
+	[self.tableView reloadData];
+    
+	[self fetchData];
+	
+    [sender endRefreshing];
+}
+
+- (IBAction)logout:(id)sender
+{
+	// Get rid of all things here...
+    NSLog(@"Logging out...");
+    
+    [self performSegueWithIdentifier:@"logoutSegue"
+                              sender:self];
+}
+
+#pragma mark - JSON handling
 
 - (void)fetchData
 {
@@ -43,46 +106,57 @@
     NSString *loginString = [NSString stringWithFormat:@"%@:%@", @"306880@student.fontys.nl", @"BxF-LZJ-D6s-erH"];
     NSString *encodedLoginData = [BTBCourseTableViewController base64String:loginString];
     NSString *base64LoginData = [NSString stringWithFormat:@"Basic %@", encodedLoginData];
-    
-    NSURL *url= [NSURL URLWithString:@"https://secapi.fontys.nl/json.ashx?app=f4IcdWfO7U2UcjGpIPjMGA&rooster_institute=FHI&rooster_class=s32&rooster_week=20140901"];
+	
+	NSString *urlString = [NSString stringWithFormat:@"https://secapi.fontys.nl/json.ashx?app=%@&rooster_institute=%@&rooster_class=%@&rooster_week=%@", self.apiKey, self.institute, self.timetableClass, self.week];
+	
+	NSLog(@"%@", urlString);
+	
+    NSURL *url= [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:10.0];
     
     [request setHTTPMethod:@"GET"];
-    [request setValue:base64LoginData forHTTPHeaderField:@"Authorization"];
+    [request setValue:base64LoginData
+   forHTTPHeaderField:@"Authorization"];
     
     NSURLConnection *urlConnection;
     urlConnection = [[NSURLConnection alloc] initWithRequest:request
                                                     delegate:self];
 }
 
-
-NSMutableData *urlData;
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+- (void)connection:(NSURLConnection *)connection
+didReceiveResponse:(NSURLResponse *)response
 {
-    urlData = [[NSMutableData alloc] init];
+    self.urlData = [[NSMutableData alloc] init];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+- (void)connection:(NSURLConnection *)connection
+	didReceiveData:(NSData *)data
 {
-    [urlData appendData:data];
+    [self.urlData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString *json = [[NSString alloc] initWithData:urlData
+    NSString *json = [[NSString alloc] initWithData:self.urlData
                                            encoding:NSUTF8StringEncoding];
-    [self finished:json data:urlData];
+	if ([json rangeOfString:@"No data available for selected week."].location != NSNotFound)
+	{
+		return;
+	}
+	
+	[self finished:json
+			  data:self.urlData];
 }
 
-- (void) finished:(NSString *)json data:(NSData *)data
+- (void) finished:(NSString *)json
+			 data:(NSData *)data
 {
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0
                                                                  error:nil];
-    NSLog(@"%@", jsonObject);
+    //NSLog(@"%@", jsonObject);
 	
 	NSMutableDictionary *startTimes = [[NSMutableDictionary alloc] init];
 	NSMutableDictionary *endTimes = [[NSMutableDictionary alloc] init];
@@ -112,22 +186,11 @@ NSMutableData *urlData;
                                                                     :key[@"Date"]
                                                                     :key[@"Text"]];
             
-            NSLog(@"%@", [course text]);
             [self.courses addObject:course];
         }
 	}
 		
 	[self.tableView reloadData];
-}
-
-- (IBAction)logout:(id)sender
-{
-	// Get rid of all things here...
-    NSLog(@"Logging out...");
-    
-    
-    [self performSegueWithIdentifier:@"logoutSegue"
-                              sender:self];
 }
 
 - (void)viewDidLoad
@@ -149,33 +212,138 @@ NSMutableData *urlData;
 	// Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (IBAction)refresh:(UIRefreshControl *)sender
-{
-	// Refreshing...
-    NSLog(@"Refreshing...");
-    
-	[self fetchData];
-	
-    [sender endRefreshing];
-}
+#pragma mark - Table view management
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	// Return the number of sections.
-    return 1;
+	
+    return 5;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section
+{
+	NSDate *today = [[NSDate alloc] init];
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	components = [calendar components:NSWeekdayCalendarUnit
+							 fromDate:today];
+	
+	NSUInteger weekdayToday = [components weekday];
+	NSInteger daysToMonday = (9 - weekdayToday) % 7;
+	
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:@"EEEE dd MMM"];
+	
+	NSDateFormatter *apiFormat = [[NSDateFormatter alloc] init];
+	[apiFormat setDateFormat:@"yyyyMMdd"];
+	
+	NSDate *sectionDate = [[NSDate alloc] init];
+	
+	[self currentWeek];
+	
+	if ([components weekday] == 1 || [components weekday] == 7)
+	{
+		switch (section)
+		{
+			case 0:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			case 1:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			case 2:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			case 3:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			case 4:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			default:
+				return @"Uknown date";
+				break;
+		}
+	}
+	else
+	{
+		switch (section)
+		{
+			case 0:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			case 1:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			case 2:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			case 3:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			case 4:
+				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
+				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+				break;
+				
+			default:
+				return @"Uknown date";
+				break;
+		}
+	}
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
 	// Return the number of rows in the section.
-    return [self.courses count];
+	if ([self.courses count] > 0)
+	{
+		self.foundSubjects = YES;
+		return [self.courses count];
+	}
+	else
+	{
+		self.foundSubjects = NO;
+		return 1;
+	}
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BTBSubjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubjectCell" forIndexPath:indexPath];
+	if (!self.foundSubjects)
+	{
+		BTBSubjectTableViewCell *emptyCell = [tableView dequeueReusableCellWithIdentifier:@"NoSubjectCell"
+																			 forIndexPath:indexPath];
+		
+		emptyCell.noSubjectLabel.text = @"No subject found.";
+		
+		return emptyCell;
+	}
+	
+	BTBSubjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubjectCell"
+																	forIndexPath:indexPath];
     
 	BTBCourse *course = [self.courses objectAtIndex:[indexPath row]];
 	
@@ -226,44 +394,6 @@ NSMutableData *urlData;
 								 encoding:NSASCIIStringEncoding];
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 #pragma mark - Dynamic Type
 
 - (void)updateTableForDynamicType
@@ -290,11 +420,12 @@ NSMutableData *urlData;
 
 #pragma mark - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+				 sender:(id)sender
 {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+	// Get the new view controller using [segue destinationViewController].
+	// Pass the selected object to the new view controller.
     NSLog(@"Logging out...");
 }
 

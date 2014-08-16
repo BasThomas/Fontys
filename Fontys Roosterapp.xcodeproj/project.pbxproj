@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4919B6F719992B1C00C50754 /* BTBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919B6F619992B1C00C50754 /* BTBLoginViewController.m */; };
-		49288302199CDB4600E7CB04 /* BTBDateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 49288301199CDB4600E7CB04 /* BTBDateExtension.m */; };
+		491D885A19A016F0003D08A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 491D885C19A016F0003D08A8 /* Main.storyboard */; };
 		A712523D1998ADC4002D7444 /* BTBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A712523C1998ADC4002D7444 /* BTBUser.m */; };
 		A76C053719980CED00C3663C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A76C053619980CED00C3663C /* Settings.bundle */; };
 		A78940AC1998B7D000A4D026 /* BTBCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = A78940AB1998B7D000A4D026 /* BTBCourse.m */; };
@@ -19,7 +19,6 @@
 		A7E74BAE1997F48200F5D3FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7E74BAC1997F48200F5D3FB /* InfoPlist.strings */; };
 		A7E74BB01997F48200F5D3FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BAF1997F48200F5D3FB /* main.m */; };
 		A7E74BB41997F48200F5D3FB /* BTBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E74BB31997F48200F5D3FB /* BTBAppDelegate.m */; };
-		A7E74BB71997F48200F5D3FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E74BB51997F48200F5D3FB /* Main.storyboard */; };
 		A7E74BBC1997F48200F5D3FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E74BBB1997F48200F5D3FB /* Images.xcassets */; };
 		A7E74BC31997F48200F5D3FB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BC21997F48200F5D3FB /* XCTest.framework */; };
 		A7E74BC41997F48200F5D3FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA31997F48200F5D3FB /* Foundation.framework */; };
@@ -42,8 +41,8 @@
 /* Begin PBXFileReference section */
 		4919B6F519992B1C00C50754 /* BTBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBLoginViewController.h; sourceTree = "<group>"; };
 		4919B6F619992B1C00C50754 /* BTBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBLoginViewController.m; sourceTree = "<group>"; };
-		49288300199CDB4600E7CB04 /* BTBDateExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBDateExtension.h; sourceTree = "<group>"; };
-		49288301199CDB4600E7CB04 /* BTBDateExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBDateExtension.m; sourceTree = "<group>"; };
+		491D885B19A016F0003D08A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		491D885D19A016F5003D08A8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nl; path = nl.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A712523B1998ADC4002D7444 /* BTBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBUser.h; sourceTree = "<group>"; };
 		A712523C1998ADC4002D7444 /* BTBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBUser.m; sourceTree = "<group>"; };
 		A76C053619980CED00C3663C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
@@ -61,17 +60,14 @@
 		A7E74BB11997F48200F5D3FB /* Fontys Roosterapp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fontys Roosterapp-Prefix.pch"; sourceTree = "<group>"; };
 		A7E74BB21997F48200F5D3FB /* BTBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBAppDelegate.h; sourceTree = "<group>"; };
 		A7E74BB31997F48200F5D3FB /* BTBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTBAppDelegate.m; sourceTree = "<group>"; };
-		A7E74BB61997F48200F5D3FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7E74BBB1997F48200F5D3FB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A7E74BC11997F48200F5D3FB /* Fontys RoosterappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fontys RoosterappTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E74BC21997F48200F5D3FB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A7E74BCA1997F48200F5D3FB /* Fontys RoosterappTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fontys RoosterappTests-Info.plist"; sourceTree = "<group>"; };
 		A7E74BCC1997F48200F5D3FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7E74BCE1997F48200F5D3FB /* Fontys_RoosterappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fontys_RoosterappTests.m; sourceTree = "<group>"; };
-		A7E74BD91997F4BA00F5D3FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		A7E74BDA1997F73700F5D3FB /* BTBCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBCourseTableViewController.h; sourceTree = "<group>"; };
 		A7E74BDB1997F73700F5D3FB /* BTBCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBCourseTableViewController.m; sourceTree = "<group>"; };
-		A7E74BE0199800EB00F5D3FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		A7E74BE1199800EB00F5D3FB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +111,7 @@
 		490BB9141999D9B000AF9A56 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A7E74BB51997F48200F5D3FB /* Main.storyboard */,
+				491D885C19A016F0003D08A8 /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -127,8 +123,6 @@
 				A78940AB1998B7D000A4D026 /* BTBCourse.m */,
 				A712523B1998ADC4002D7444 /* BTBUser.h */,
 				A712523C1998ADC4002D7444 /* BTBUser.m */,
-				49288300199CDB4600E7CB04 /* BTBDateExtension.h */,
-				49288301199CDB4600E7CB04 /* BTBDateExtension.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -288,7 +282,7 @@
 				A76C053719980CED00C3663C /* Settings.bundle in Resources */,
 				A7E74BBC1997F48200F5D3FB /* Images.xcassets in Resources */,
 				A7E74BAE1997F48200F5D3FB /* InfoPlist.strings in Resources */,
-				A7E74BB71997F48200F5D3FB /* Main.storyboard in Resources */,
+				491D885A19A016F0003D08A8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,7 +301,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49288302199CDB4600E7CB04 /* BTBDateExtension.m in Sources */,
 				A7E74BDC1997F73700F5D3FB /* BTBCourseTableViewController.m in Sources */,
 				A7E74BB01997F48200F5D3FB /* main.m in Sources */,
 				A78940AC1998B7D000A4D026 /* BTBCourse.m in Sources */,
@@ -337,6 +330,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		491D885C19A016F0003D08A8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				491D885B19A016F0003D08A8 /* en */,
+				491D885D19A016F5003D08A8 /* nl */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		A7E74BAC1997F48200F5D3FB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -344,16 +346,6 @@
 				A7E74BE1199800EB00F5D3FB /* nl */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A7E74BB51997F48200F5D3FB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A7E74BB61997F48200F5D3FB /* Base */,
-				A7E74BD91997F4BA00F5D3FB /* en */,
-				A7E74BE0199800EB00F5D3FB /* nl */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		A7E74BCB1997F48200F5D3FB /* InfoPlist.strings */ = {

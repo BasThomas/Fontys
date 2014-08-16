@@ -37,6 +37,8 @@
     
     self.subjectLabel.font = bodyFont;
     self.locationTeacherLabel.font = captionFont;
+	
+	self.noSubjectLabel.font = bodyFont;
 }
 
 - (void)layoutSubviews
