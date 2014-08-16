@@ -15,6 +15,15 @@
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *text;
 
-- (instancetype) init;
+@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSString *teacherName;
+@property (nonatomic, strong) NSString *subjectName;
+@property (nonatomic) BOOL teacher;
+
+- (instancetype) initWithStartTime:(NSString *)startTime
+                                  :(NSString *)endTime
+                                  :(NSString *)date
+                                  :(NSString *)text;
+- (void) textToTypes;
 
 @end

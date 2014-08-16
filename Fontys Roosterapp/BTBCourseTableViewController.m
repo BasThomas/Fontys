@@ -34,7 +34,7 @@
 	// Prepare request
     NSString *loginString = [NSString stringWithFormat:@"%@:%@", @"306880@student.fontys.nl", @"BxF-LZJ-D6s-erH"];
     NSString *encodedLoginData = [BTBCourseTableViewController base64String:loginString];
-    NSString *base64LoginData = [NSString stringWithFormat:@"Basic %@",encodedLoginData];
+    NSString *base64LoginData = [NSString stringWithFormat:@"Basic %@", encodedLoginData];
     
     NSURL *url= [NSURL URLWithString:@"https://secapi.fontys.nl/json.ashx?app=f4IcdWfO7U2UcjGpIPjMGA&rooster_institute=FHI&rooster_class=s32&rooster_week=20140901"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
@@ -74,14 +74,10 @@ NSMutableData *urlData;
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0
                                                                  error:nil];
-    //NSLog(@"%@", jsonObject);
+    NSLog(@"%@", jsonObject);
 	
 	NSMutableDictionary *startTimes = [[NSMutableDictionary alloc] init];
 	NSMutableDictionary *endTimes = [[NSMutableDictionary alloc] init];
-	
-	//[startTimes setObject:@"08:45" forKey:@"1"];
-	//NSLog(@"%@", [startTimes valueForKey:@"1"]);
-	
 	
 	for (id key in jsonObject[@"Rooster"][@"Hours"])
 	{
@@ -96,17 +92,21 @@ NSMutableData *urlData;
 					forKey:hour];
 	}
     
+    [self.courses removeAllObjects];
+    
     for (id key in jsonObject[@"Rooster"][@"Timetable"])
 	{
-		BTBCourse *course = [[BTBCourse alloc] init];
-		// Set begin/end hour here
-		NSString *hour = key[@"Hour"];
-		[course setStartTime:[startTimes objectForKey:hour]];
-		[course setEndTime:[endTimes objectForKey:hour]];
-		[course setDate:key[@"Date"]];
-		[course setText:key[@"Text"]];
-		
-		[self.courses addObject:course];
+        NSString *hour = key[@"Hour"];
+        if ([key[@"Text"] rangeOfString:@"DIF"].location == NSNotFound)
+        {
+            BTBCourse *course = [[BTBCourse alloc] initWithStartTime:[startTimes objectForKey:hour]
+                                                                    :[endTimes objectForKey:hour]
+                                                                    :key[@"Date"]
+                                                                    :key[@"Text"]];
+            
+            NSLog(@"%@", [course text]);
+            [self.courses addObject:course];
+        }
 	}
 		
 	[self.tableView reloadData];
@@ -128,9 +128,6 @@ NSMutableData *urlData;
     
 	// Uncomment the following line to preserve selection between presentations.
 	// self.clearsSelectionOnViewWillAppear = NO;
-    
-	// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-	// self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -150,6 +147,7 @@ NSMutableData *urlData;
 {
 	// Refreshing...
     NSLog(@"Refreshing...");
+    
 	[self fetchData];
 	
     [sender endRefreshing];
@@ -176,7 +174,9 @@ NSMutableData *urlData;
 	// Configure the cell...
 	cell.startTimeLabel.text = [course startTime];
 	cell.endTimeLabel.text = [course endTime];
-	cell.subjectLabel.text = [course text];
+    
+    cell.subjectLabel.text = [course subjectName];
+    cell.locationTeacherLabel.text = [NSString stringWithFormat:@"%@ %@", [course location], [course teacherName]];    
 	
     return cell;
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="u12-hx-1da">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="u12-hx-1da">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -82,16 +82,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rf-hf-oLC">
-                                            <rect key="frame" x="62" y="11" width="238" height="21"/>
+                                            <rect key="frame" x="62" y="3" width="238" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="238" id="eZa-3v-c5P"/>
+                                                <constraint firstAttribute="height" constant="21" id="4dx-w3-udy"/>
+                                                <constraint firstAttribute="width" constant="238" id="Fkh-Z3-NZU"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5D-EX-BXz">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5D-EX-BXz">
                                             <rect key="frame" x="13" y="2" width="41" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
@@ -102,7 +103,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODw-2U-YV2">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODw-2U-YV2">
                                             <rect key="frame" x="13" y="22" width="41" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
@@ -112,21 +113,33 @@
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location &amp; teacher" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyt-u9-Zbf">
+                                            <rect key="frame" x="62" y="22" width="238" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="238" id="LL2-mE-xdZ"/>
+                                                <constraint firstAttribute="height" constant="21" id="WWb-F4-wF8"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="0rf-hf-oLC" secondAttribute="trailing" constant="20" id="5Gb-Mq-moQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="0rf-hf-oLC" secondAttribute="trailing" constant="20" id="3Yl-Ha-ae9"/>
                                         <constraint firstAttribute="bottom" secondItem="ODw-2U-YV2" secondAttribute="bottom" id="6F5-k1-eVa"/>
+                                        <constraint firstAttribute="trailing" secondItem="eyt-u9-Zbf" secondAttribute="trailing" constant="20" id="Db0-1s-XfN"/>
                                         <constraint firstItem="ODw-2U-YV2" firstAttribute="width" secondItem="H5D-EX-BXz" secondAttribute="width" id="Jsv-vC-Ptb"/>
                                         <constraint firstItem="ODw-2U-YV2" firstAttribute="leading" secondItem="Zej-lt-8Kh" secondAttribute="leading" constant="13" id="RCO-r4-h6Y"/>
+                                        <constraint firstItem="0rf-hf-oLC" firstAttribute="top" secondItem="Zej-lt-8Kh" secondAttribute="top" constant="3" id="Tgc-Ze-7Su"/>
                                         <constraint firstItem="H5D-EX-BXz" firstAttribute="leading" secondItem="Zej-lt-8Kh" secondAttribute="leading" constant="13" id="VK4-Zu-IPw"/>
                                         <constraint firstItem="ODw-2U-YV2" firstAttribute="height" secondItem="H5D-EX-BXz" secondAttribute="height" id="Z7a-xc-npN"/>
-                                        <constraint firstAttribute="bottom" secondItem="0rf-hf-oLC" secondAttribute="bottom" constant="11" id="lPM-do-0AL"/>
+                                        <constraint firstAttribute="bottom" secondItem="eyt-u9-Zbf" secondAttribute="bottom" id="low-45-YJS"/>
                                         <constraint firstItem="H5D-EX-BXz" firstAttribute="top" secondItem="Zej-lt-8Kh" secondAttribute="top" constant="2" id="nOt-3t-zsB"/>
-                                        <constraint firstItem="0rf-hf-oLC" firstAttribute="top" secondItem="Zej-lt-8Kh" secondAttribute="top" constant="11" id="zlX-FP-YJZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="endTimeLabel" destination="ODw-2U-YV2" id="NtV-aB-nnZ"/>
+                                    <outlet property="locationTeacherLabel" destination="eyt-u9-Zbf" id="Yxq-1Z-Dpp"/>
                                     <outlet property="startTimeLabel" destination="H5D-EX-BXz" id="zTG-PM-fB5"/>
                                     <outlet property="subjectLabel" destination="0rf-hf-oLC" id="Bh7-hA-dcP"/>
                                 </connections>

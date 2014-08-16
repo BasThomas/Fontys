@@ -32,7 +32,9 @@
     
 	self.startTimeLabel.font = captionFont;
 	self.endTimeLabel.font = captionFont;
+    
     self.subjectLabel.font = bodyFont;
+    self.locationTeacherLabel.font = captionFont;
 }
 
 - (void)layoutSubviews
