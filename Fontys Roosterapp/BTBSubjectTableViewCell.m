@@ -17,15 +17,17 @@
     {
         NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
         [defaultCenter addObserver:self
-                          selector:@selector(updateFonts)
+                          selector:@selector(updateTableForDynamicType)
                               name:UIContentSizeCategoryDidChangeNotification
                             object:nil];
+        
+        //[self updateTableForDynamicType];
     }
     
     return self;
 }
 
-- (void)updateFonts
+- (void)updateTableForDynamicType
 {
     UIFont *bodyFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 	UIFont *captionFont = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
@@ -41,7 +43,7 @@
 {
     [super layoutSubviews];
     
-    [self updateFonts];
+    [self updateTableForDynamicType];
 }
 
 - (void)awakeFromNib
@@ -58,8 +60,7 @@
 
 - (void)dealloc
 {
-    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
-    [defaultCenter removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

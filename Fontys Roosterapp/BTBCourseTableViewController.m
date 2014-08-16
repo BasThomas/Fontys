@@ -24,6 +24,14 @@
 			self.courses = [[NSMutableArray alloc] init];
 			
 			[self fetchData];
+            
+            NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+            [defaultCenter addObserver:self
+                              selector:@selector(updateTableForDynamicType)
+                                  name:UIContentSizeCategoryDidChangeNotification
+                                object:nil];
+            
+            //[self updateTableForDynamicType];
         }
     
     return self;
@@ -181,7 +189,6 @@ NSMutableData *urlData;
     return cell;
 }
 
-
 + (NSString *)base64String:(NSString *)str
 {
     NSData *theData = [str dataUsingEncoding: NSASCIIStringEncoding];
@@ -218,7 +225,6 @@ NSMutableData *urlData;
     return [[NSString alloc] initWithData:data
 								 encoding:NSASCIIStringEncoding];
 }
-
 
 /*
  // Override to support conditional editing of the table view.
@@ -257,6 +263,30 @@ NSMutableData *urlData;
  return YES;
  }
  */
+
+#pragma mark - Dynamic Type
+
+- (void)updateTableForDynamicType
+{
+    static NSDictionary *cellHeightDictionary;
+    
+    if (!cellHeightDictionary)
+    {
+        cellHeightDictionary = @{UIContentSizeCategoryExtraSmall: @44,
+                                 UIContentSizeCategorySmall: @44,
+                                 UIContentSizeCategoryMedium: @44,
+                                 UIContentSizeCategoryLarge: @44,
+                                 UIContentSizeCategoryExtraLarge: @50,
+                                 UIContentSizeCategoryExtraExtraLarge: @50,
+                                 UIContentSizeCategoryExtraExtraExtraLarge: @50};
+    }
+    
+    NSString *userSize = [[UIApplication sharedApplication] preferredContentSizeCategory];
+    
+    NSNumber *cellHeight = cellHeightDictionary[userSize];
+    [self.tableView setRowHeight:cellHeight.floatValue];
+    [self.tableView reloadData];
+}
 
 #pragma mark - Navigation
 
