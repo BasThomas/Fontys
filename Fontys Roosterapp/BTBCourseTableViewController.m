@@ -23,13 +23,24 @@
         {
 			self.courses = [[NSMutableArray alloc] init];
 			
+			self.days = [NSArray arrayWithObjects:self.courseMonday, self.courseTuesday, self.courseWednesday, self.courseThursday, self.courseFriday, nil];
+			
+			self.courseMonday = [[NSMutableArray alloc] init];
+			self.courseTuesday = [[NSMutableArray alloc] init];
+			self.courseWednesday = [[NSMutableArray alloc] init];
+			self.courseThursday = [[NSMutableArray alloc] init];
+			self.courseFriday = [[NSMutableArray alloc] init];
+			
 			self.apiKey = @"f4IcdWfO7U2UcjGpIPjMGA";
 			self.institute = @"FHI";
-			self.timetableClass = @"s32";
+			self.timetableClasses = [NSMutableArray arrayWithObjects:@"sm32", nil];
 			[self currentWeek];
 			self.week = @"20140901";
 			
-			[self fetchData];
+			for (NSString *class in self.timetableClasses)
+			{
+				[self fetchData:class];
+			}
             
             NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
             [defaultCenter addObserver:self
@@ -39,6 +50,29 @@
         }
     
     return self;
+}
+
+#pragma mark - View management
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+	// Uncomment the following line to preserve selection between presentations.
+	// self.clearsSelectionOnViewWillAppear = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+	
+	[self updateTableForDynamicType];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Helper functions
@@ -61,12 +95,14 @@
 	
 	if ([components weekday] == 1 || [components weekday] == 7)
 	{
-		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * daysToMonday];
+		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + 14)];
+		//sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * daysToMonday];
 		self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
 	}
 	else
 	{
-		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -daysToMonday];
+		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (-daysToMonday + 14)];
+		//sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -daysToMonday];
 		self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
 	}
 	
@@ -84,7 +120,10 @@
 	[self.courses removeAllObjects];
 	[self.tableView reloadData];
     
-	[self fetchData];
+	for (NSString *class in self.timetableClasses)
+	{
+		[self fetchData:class];
+	}
 	
     [sender endRefreshing];
 }
@@ -100,14 +139,14 @@
 
 #pragma mark - JSON handling
 
-- (void)fetchData
+- (void)fetchData:(NSString *)currentClass
 {
 	// Prepare request
     NSString *loginString = [NSString stringWithFormat:@"%@:%@", @"306880@student.fontys.nl", @"BxF-LZJ-D6s-erH"];
     NSString *encodedLoginData = [BTBCourseTableViewController base64String:loginString];
     NSString *base64LoginData = [NSString stringWithFormat:@"Basic %@", encodedLoginData];
 	
-	NSString *urlString = [NSString stringWithFormat:@"https://secapi.fontys.nl/json.ashx?app=%@&rooster_institute=%@&rooster_class=%@&rooster_week=%@", self.apiKey, self.institute, self.timetableClass, self.week];
+	NSString *urlString = [NSString stringWithFormat:@"https://secapi.fontys.nl/json.ashx?app=%@&rooster_institute=%@&rooster_class=%@&rooster_week=%@", self.apiKey, self.institute, currentClass, self.week];
 	
 	NSLog(@"%@", urlString);
 	
@@ -193,170 +232,6 @@ didReceiveResponse:(NSURLResponse *)response
 	[self.tableView reloadData];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-	// Uncomment the following line to preserve selection between presentations.
-	// self.clearsSelectionOnViewWillAppear = NO;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view management
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-	// Return the number of sections.
-	
-    return 5;
-}
-
-- (NSString *)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section
-{
-	NSDate *today = [[NSDate alloc] init];
-	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDateComponents *components = [[NSDateComponents alloc] init];
-	components = [calendar components:NSWeekdayCalendarUnit
-							 fromDate:today];
-	
-	NSUInteger weekdayToday = [components weekday];
-	NSInteger daysToMonday = (9 - weekdayToday) % 7;
-	
-	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"EEEE dd MMM"];
-	
-	NSDateFormatter *apiFormat = [[NSDateFormatter alloc] init];
-	[apiFormat setDateFormat:@"yyyyMMdd"];
-	
-	NSDate *sectionDate = [[NSDate alloc] init];
-	
-	[self currentWeek];
-	
-	if ([components weekday] == 1 || [components weekday] == 7)
-	{
-		switch (section)
-		{
-			case 0:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			case 1:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			case 2:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			case 3:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			case 4:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			default:
-				return @"Uknown date";
-				break;
-		}
-	}
-	else
-	{
-		switch (section)
-		{
-			case 0:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			case 1:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			case 2:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			case 3:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			case 4:
-				sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
-				return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-				break;
-				
-			default:
-				return @"Uknown date";
-				break;
-		}
-	}
-}
-
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
-	// Return the number of rows in the section.
-	if ([self.courses count] > 0)
-	{
-		self.foundSubjects = YES;
-		return [self.courses count];
-	}
-	else
-	{
-		self.foundSubjects = NO;
-		return 1;
-	}
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView
-		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	if (!self.foundSubjects)
-	{
-		BTBSubjectTableViewCell *emptyCell = [tableView dequeueReusableCellWithIdentifier:@"NoSubjectCell"
-																			 forIndexPath:indexPath];
-		
-		emptyCell.noSubjectLabel.text = @"No subject found.";
-		
-		return emptyCell;
-	}
-	
-	BTBSubjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubjectCell"
-																	forIndexPath:indexPath];
-    
-	BTBCourse *course = [self.courses objectAtIndex:[indexPath row]];
-	
-	// Configure the cell...
-	cell.startTimeLabel.text = [course startTime];
-	cell.endTimeLabel.text = [course endTime];
-    
-    cell.subjectLabel.text = [course subjectName];
-    cell.locationTeacherLabel.text = [NSString stringWithFormat:@"%@ %@", [course location], [course teacherName]];    
-	
-    return cell;
-}
-
 + (NSString *)base64String:(NSString *)str
 {
     NSData *theData = [str dataUsingEncoding: NSASCIIStringEncoding];
@@ -392,6 +267,154 @@ titleForHeaderInSection:(NSInteger)section
     
     return [[NSString alloc] initWithData:data
 								 encoding:NSASCIIStringEncoding];
+}
+
+#pragma mark - Table view management
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	// Return the number of sections.
+    return 5;
+}
+
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section
+{
+	NSDate *today = [[NSDate alloc] init];
+	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *components = [[NSDateComponents alloc] init];
+	components = [calendar components:NSWeekdayCalendarUnit
+							 fromDate:today];
+	
+	NSUInteger weekdayToday = [components weekday];
+	NSInteger daysToMonday = (9 - weekdayToday) % 7;
+	
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:@"EEEE dd MMM"];
+	
+	NSDateFormatter *apiFormat = [[NSDateFormatter alloc] init];
+	[apiFormat setDateFormat:@"yyyyMMdd"];
+	
+	NSDate *sectionDate = [[NSDate alloc] init];
+	
+	[self currentWeek];
+	
+	if ([components weekday] == 1 || [components weekday] == 7)
+	{
+		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
+		return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+	}
+	else
+	{
+		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
+		return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
+	}
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+	// Return the number of rows in the section.
+	if ([self.courses count] > 0)
+	{
+		int rows = 0;
+		self.foundSubjects = YES;
+		
+		for (BTBCourse *course in self.courses)
+		{
+			if ([course.date isEqual:[NSString stringWithFormat:@"%ld", [self.week intValue] + section]])
+			{
+				switch (section)
+				{
+					case 0:
+						[self.courseMonday addObject:course];
+						break;
+						
+					case 1:
+						// Tuesday
+						[self.courseTuesday addObject:course];
+						break;
+						
+					case 2:
+						// Wednesday
+						[self.courseWednesday addObject:course];
+						break;
+						
+					case 3:
+						// Thursday
+						[self.courseThursday addObject:course];
+						break;
+						
+					case 4:
+						// Friday
+						[self.courseFriday addObject:course];
+						break;
+				}
+				rows++;
+			}
+		}
+		
+		return rows;
+	}
+	else
+	{
+		self.foundSubjects = NO;
+		return 1;
+	}
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (!self.foundSubjects)
+	{
+		BTBSubjectTableViewCell *emptyCell = [tableView dequeueReusableCellWithIdentifier:@"NoSubjectCell"
+																			 forIndexPath:indexPath];
+		
+		emptyCell.noSubjectLabel.text = @"No subject found.";
+		
+		return emptyCell;
+	}
+	
+	BTBSubjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubjectCell"
+																	forIndexPath:indexPath];
+    
+	BTBCourse *course;
+	
+	switch (indexPath.section)
+	{
+		case 0:
+			course = [self.courseMonday objectAtIndex:[indexPath row]];
+			break;
+			
+		case 1:
+			course = [self.courseTuesday objectAtIndex:[indexPath row]];
+			break;
+			
+		case 2:
+			course = [self.courseWednesday objectAtIndex:[indexPath row]];
+			break;
+			
+		case 3:
+			course = [self.courseThursday objectAtIndex:[indexPath row]];
+			break;
+			
+		case 4:
+			course = [self.courseFriday objectAtIndex:[indexPath row]];
+			break;
+	}
+	
+	//BTBCourse *course = [self.courses objectAtIndex:[indexPath row]];
+	//BTBCourse *course = [self.courses objectAtIndex:[section rows] + [indexPath row]];
+	
+	// Configure the cell...
+	cell.startTimeLabel.text = [course startTime];
+	cell.endTimeLabel.text = [course endTime];
+    
+    cell.subjectLabel.text = [course subjectName];
+    cell.locationTeacherLabel.text = [NSString stringWithFormat:@"%@ %@", [course location], [course teacherName]];    
+	
+    return cell;
 }
 
 #pragma mark - Dynamic Type

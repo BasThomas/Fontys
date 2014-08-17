@@ -85,23 +85,31 @@
     
     if (amountOfLocations > 1)
     {
-        NSString *teachers = [[NSString alloc] init];
-        teachers = [teachers stringByAppendingString:@"— "];
+		if (splitText[0] != splitText[1])
+		{
+			// Two (or more) classes in one
+			self.subjectName = splitText[amountOfLocations];
+		}
+		else
+		{
+			NSString *teachers = [[NSString alloc] init];
+			teachers = [teachers stringByAppendingString:@"— "];
         
-        for (int i = 0; i < amountOfLocations; i++)
-        {
-            if (i != (amountOfLocations - 1))
-            {
-                teachers = [teachers stringByAppendingFormat:@"%@, ", splitText[i]];
-            }
-            else
-            {
-                teachers = [teachers stringByAppendingFormat:@"%@", splitText[i]];
-            }
-        }
+			for (int i = 0; i < amountOfLocations; i++)
+			{
+				if (i != (amountOfLocations - 1))
+				{
+					teachers = [teachers stringByAppendingFormat:@"%@, ", splitText[i]];
+				}
+				else
+				{
+					teachers = [teachers stringByAppendingFormat:@"%@", splitText[i]];
+				}
+			}
         
-        self.teacherName = teachers;
-        self.subjectName = splitText[amountOfLocations];
+			self.teacherName = teachers;
+			self.subjectName = splitText[amountOfLocations];
+		}
     }
 }
 

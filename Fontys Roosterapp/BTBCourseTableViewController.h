@@ -15,9 +15,18 @@
 @property (nonatomic, strong) NSMutableData *urlData;
 @property (nonatomic, strong) NSMutableArray *courses;
 
+@property (nonatomic, strong) NSArray *days;
+
+@property (nonatomic, strong) NSMutableArray *courseMonday;
+@property (nonatomic, strong) NSMutableArray *courseTuesday;
+@property (nonatomic, strong) NSMutableArray *courseWednesday;
+@property (nonatomic, strong) NSMutableArray *courseThursday;
+@property (nonatomic, strong) NSMutableArray *courseFriday;
+
 @property (nonatomic, strong) NSString *apiKey;
 @property (nonatomic, strong) NSString *institute;
-@property (nonatomic, strong) NSString *timetableClass;
+
+@property (nonatomic, strong) NSMutableArray *timetableClasses;
 @property (nonatomic, strong) NSString *week;
 
 @property (nonatomic) BOOL foundSubjects;

@@ -20,8 +20,6 @@
                           selector:@selector(updateTableForDynamicType)
                               name:UIContentSizeCategoryDidChangeNotification
                             object:nil];
-        
-        //[self updateTableForDynamicType];
     }
     
     return self;
