@@ -33,9 +33,12 @@
 			
 			self.apiKey = @"f4IcdWfO7U2UcjGpIPjMGA";
 			self.institute = @"FHI";
-			self.timetableClasses = [NSMutableArray arrayWithObjects:@"sm32", nil];
+			
+			self.timetableClasses = [NSMutableArray arrayWithObjects:@"sm32", @"s32", nil];
+			self.destructingClasses = [[NSMutableArray alloc] initWithArray:self.timetableClasses copyItems:YES];
+			
 			[self currentWeek];
-			self.week = @"20140901";
+			//self.week = @"20140901";
 			
 			for (NSString *class in self.timetableClasses)
 			{
@@ -95,14 +98,14 @@
 	
 	if ([components weekday] == 1 || [components weekday] == 7)
 	{
-		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + 14)];
-		//sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * daysToMonday];
+		//sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + 14)];
+		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * daysToMonday];
 		self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
 	}
 	else
 	{
-		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (-daysToMonday + 14)];
-		//sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -daysToMonday];
+		//sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (-daysToMonday + 14)];
+		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -daysToMonday];
 		self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
 	}
 	
@@ -118,7 +121,6 @@
 	
 	self.foundSubjects = NO;
 	[self.courses removeAllObjects];
-	[self.tableView reloadData];
     
 	for (NSString *class in self.timetableClasses)
 	{
@@ -213,7 +215,7 @@ didReceiveResponse:(NSURLResponse *)response
 					forKey:hour];
 	}
     
-    [self.courses removeAllObjects];
+    //[self.courses removeAllObjects];
     
     for (id key in jsonObject[@"Rooster"][@"Timetable"])
 	{
@@ -228,7 +230,9 @@ didReceiveResponse:(NSURLResponse *)response
             [self.courses addObject:course];
         }
 	}
-		
+	
+	//[self.destructingClasses removeObjectAtIndex:0];
+	
 	[self.tableView reloadData];
 }
 

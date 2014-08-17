@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KeychainItemWrapper.h"
 
 @interface BTBLoginViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
+@property (nonatomic, strong) KeychainItemWrapper *keychainItem;
 
 @end

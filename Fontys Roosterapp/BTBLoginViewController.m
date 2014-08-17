@@ -16,6 +16,15 @@
     
     // Login...
     NSLog(@"Logging in...");
+	
+	self.keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"login"
+															accessGroup:nil];
+	
+	[self.keychainItem setObject:self.usernameTextField.text
+						  forKey:(__bridge id)kSecAttrAccount];
+	
+	[self.keychainItem setObject:self.passwordTextField.text
+						  forKey:(__bridge id)kSecValueData];
     
     // Setup user below.
     

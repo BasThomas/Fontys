@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BTBSubjectTableViewCell.h"
 #import "BTBCourse.h"
+#import "BTBLoginViewController.h"
 
 @interface BTBCourseTableViewController : UITableViewController <NSURLConnectionDelegate>
 
@@ -27,6 +28,8 @@
 @property (nonatomic, strong) NSString *institute;
 
 @property (nonatomic, strong) NSMutableArray *timetableClasses;
+@property (nonatomic, strong) NSMutableArray *destructingClasses;
+
 @property (nonatomic, strong) NSString *week;
 
 @property (nonatomic) BOOL foundSubjects;

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4919B6F719992B1C00C50754 /* BTBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919B6F619992B1C00C50754 /* BTBLoginViewController.m */; };
 		491D885A19A016F0003D08A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 491D885C19A016F0003D08A8 /* Main.storyboard */; };
+		4960712119A0F66F00C2E73C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4960712019A0F66F00C2E73C /* Security.framework */; };
+		4960712419A0F7FF00C2E73C /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4960712319A0F7FF00C2E73C /* KeychainItemWrapper.m */; };
 		49675A2B19A0C64A00FF71A0 /* BTBCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 49675A2A19A0C64A00FF71A0 /* BTBCourse.m */; };
 		A712523D1998ADC4002D7444 /* BTBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A712523C1998ADC4002D7444 /* BTBUser.m */; };
 		A76C053719980CED00C3663C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A76C053619980CED00C3663C /* Settings.bundle */; };
@@ -43,6 +45,9 @@
 		4919B6F619992B1C00C50754 /* BTBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBLoginViewController.m; sourceTree = "<group>"; };
 		491D885B19A016F0003D08A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		491D885D19A016F5003D08A8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nl; path = nl.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4960712019A0F66F00C2E73C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4960712219A0F7FF00C2E73C /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		4960712319A0F7FF00C2E73C /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		49675A2919A0C64A00FF71A0 /* BTBCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBCourse.h; sourceTree = "<group>"; };
 		49675A2A19A0C64A00FF71A0 /* BTBCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBCourse.m; sourceTree = "<group>"; };
 		A712523B1998ADC4002D7444 /* BTBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBUser.h; sourceTree = "<group>"; };
@@ -76,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4960712119A0F66F00C2E73C /* Security.framework in Frameworks */,
 				A7E74BA61997F48200F5D3FB /* CoreGraphics.framework in Frameworks */,
 				A7E74BA81997F48200F5D3FB /* UIKit.framework in Frameworks */,
 				A7E74BA41997F48200F5D3FB /* Foundation.framework in Frameworks */,
@@ -98,6 +104,8 @@
 		490BB9131999D9A400AF9A56 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				4960712219A0F7FF00C2E73C /* KeychainItemWrapper.h */,
+				4960712319A0F7FF00C2E73C /* KeychainItemWrapper.m */,
 				4919B6F519992B1C00C50754 /* BTBLoginViewController.h */,
 				4919B6F619992B1C00C50754 /* BTBLoginViewController.m */,
 				A78940AD1998BE3D00A4D026 /* BTBSubjectTableViewCell.h */,
@@ -149,6 +157,7 @@
 		A7E74BA21997F48200F5D3FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4960712019A0F66F00C2E73C /* Security.framework */,
 				A7E74BA31997F48200F5D3FB /* Foundation.framework */,
 				A7E74BA51997F48200F5D3FB /* CoreGraphics.framework */,
 				A7E74BA71997F48200F5D3FB /* UIKit.framework */,
@@ -305,6 +314,7 @@
 				A7E74BB01997F48200F5D3FB /* main.m in Sources */,
 				4919B6F719992B1C00C50754 /* BTBLoginViewController.m in Sources */,
 				A7E74BB41997F48200F5D3FB /* BTBAppDelegate.m in Sources */,
+				4960712419A0F7FF00C2E73C /* KeychainItemWrapper.m in Sources */,
 				49675A2B19A0C64A00FF71A0 /* BTBCourse.m in Sources */,
 				A712523D1998ADC4002D7444 /* BTBUser.m in Sources */,
 				A78940AF1998BE3D00A4D026 /* BTBSubjectTableViewCell.m in Sources */,
