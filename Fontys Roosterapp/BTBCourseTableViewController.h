@@ -10,6 +10,7 @@
 #import "BTBSubjectTableViewCell.h"
 #import "BTBCourse.h"
 #import "BTBLoginViewController.h"
+@class Reachability;
 
 @interface BTBCourseTableViewController : UITableViewController <NSURLConnectionDelegate>
 
@@ -34,6 +35,12 @@
 
 @property (nonatomic) BOOL foundSubjects;
 
+@property (nonatomic, strong) Reachability *internetReachable;
+@property (nonatomic, strong) Reachability *hostReachable;
+@property (nonatomic) BOOL internetActive;
+@property (nonatomic) BOOL hostActive;
+
 - (NSString *)currentWeek;
+- (void)checkNetworkStatus:(NSNotification *)notice;
 
 @end

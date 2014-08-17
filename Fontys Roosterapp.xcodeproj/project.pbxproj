@@ -12,6 +12,8 @@
 		4960712119A0F66F00C2E73C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4960712019A0F66F00C2E73C /* Security.framework */; };
 		4960712419A0F7FF00C2E73C /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4960712319A0F7FF00C2E73C /* KeychainItemWrapper.m */; };
 		49675A2B19A0C64A00FF71A0 /* BTBCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 49675A2A19A0C64A00FF71A0 /* BTBCourse.m */; };
+		4981AD9819A12707007DD6C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4981AD9719A12707007DD6C9 /* SystemConfiguration.framework */; };
+		4981AD9B19A12741007DD6C9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4981AD9A19A12741007DD6C9 /* Reachability.m */; };
 		A712523D1998ADC4002D7444 /* BTBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A712523C1998ADC4002D7444 /* BTBUser.m */; };
 		A76C053719980CED00C3663C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A76C053619980CED00C3663C /* Settings.bundle */; };
 		A78940AF1998BE3D00A4D026 /* BTBSubjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78940AE1998BE3D00A4D026 /* BTBSubjectTableViewCell.m */; };
@@ -48,6 +50,9 @@
 		4960712319A0F7FF00C2E73C /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		49675A2919A0C64A00FF71A0 /* BTBCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBCourse.h; sourceTree = "<group>"; };
 		49675A2A19A0C64A00FF71A0 /* BTBCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBCourse.m; sourceTree = "<group>"; };
+		4981AD9719A12707007DD6C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4981AD9919A12741007DD6C9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		4981AD9A19A12741007DD6C9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		49989F4B19A11F8D00DEACF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49989F4E19A11FD500DEACF5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		49989F4F19A11FD500DEACF5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -82,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4981AD9819A12707007DD6C9 /* SystemConfiguration.framework in Frameworks */,
 				4960712119A0F66F00C2E73C /* Security.framework in Frameworks */,
 				A7E74BA61997F48200F5D3FB /* CoreGraphics.framework in Frameworks */,
 				A7E74BA81997F48200F5D3FB /* UIKit.framework in Frameworks */,
@@ -105,8 +111,7 @@
 		490BB9131999D9A400AF9A56 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				4960712219A0F7FF00C2E73C /* KeychainItemWrapper.h */,
-				4960712319A0F7FF00C2E73C /* KeychainItemWrapper.m */,
+				4981AD9C19A1274E007DD6C9 /* Apple Classes */,
 				4919B6F519992B1C00C50754 /* BTBLoginViewController.h */,
 				4919B6F619992B1C00C50754 /* BTBLoginViewController.m */,
 				A78940AD1998BE3D00A4D026 /* BTBSubjectTableViewCell.h */,
@@ -123,6 +128,17 @@
 				491D885C19A016F0003D08A8 /* Main.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		4981AD9C19A1274E007DD6C9 /* Apple Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4981AD9919A12741007DD6C9 /* Reachability.h */,
+				4981AD9A19A12741007DD6C9 /* Reachability.m */,
+				4960712219A0F7FF00C2E73C /* KeychainItemWrapper.h */,
+				4960712319A0F7FF00C2E73C /* KeychainItemWrapper.m */,
+			);
+			name = "Apple Classes";
 			sourceTree = "<group>";
 		};
 		A712523E1998ADD5002D7444 /* Model */ = {
@@ -158,6 +174,7 @@
 		A7E74BA21997F48200F5D3FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4981AD9719A12707007DD6C9 /* SystemConfiguration.framework */,
 				4960712019A0F66F00C2E73C /* Security.framework */,
 				A7E74BA31997F48200F5D3FB /* Foundation.framework */,
 				A7E74BA51997F48200F5D3FB /* CoreGraphics.framework */,
@@ -318,6 +335,7 @@
 				4960712419A0F7FF00C2E73C /* KeychainItemWrapper.m in Sources */,
 				49675A2B19A0C64A00FF71A0 /* BTBCourse.m in Sources */,
 				A712523D1998ADC4002D7444 /* BTBUser.m in Sources */,
+				4981AD9B19A12741007DD6C9 /* Reachability.m in Sources */,
 				A78940AF1998BE3D00A4D026 /* BTBSubjectTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

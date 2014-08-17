@@ -7,6 +7,7 @@
 //
 
 #import "BTBCourseTableViewController.h"
+#import "Reachability.h"
 
 @interface BTBCourseTableViewController ()
 
@@ -50,6 +51,14 @@
                               selector:@selector(updateTableForDynamicType)
                                   name:UIContentSizeCategoryDidChangeNotification
                                 object:nil];
+			
+			[defaultCenter addObserver:self
+							  selector:@selector(checkNetworkStatus:)
+								  name:kReachabilityChangedNotification
+								object:nil];
+			
+			self.internetActive = YES;
+			self.hostActive = YES;
         }
     
     return self;
@@ -76,6 +85,11 @@
 {
     [super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Helper functions
@@ -112,12 +126,74 @@
 	return self.week;
 }
 
+- (void)checkNetworkStatus:(NSNotification *)notice
+{
+    // called after network status changes
+    NetworkStatus internetStatus = [_internetReachable currentReachabilityStatus];
+    switch (internetStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"The internet is down.");
+            self.internetActive = NO;
+			
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"The internet is working via WIFI.");
+            self.internetActive = YES;
+			
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"The internet is working via WWAN.");
+            self.internetActive = YES;
+			
+            break;
+        }
+    }
+	
+    NetworkStatus hostStatus = [_hostReachable currentReachabilityStatus];
+    switch (hostStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"A gateway to the host server is down.");
+            self.hostActive = NO;
+			
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"A gateway to the host server is working via WIFI.");
+            self.hostActive = YES;
+			
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"A gateway to the host server is working via WWAN.");
+            self.hostActive = YES;
+			
+            break;
+        }
+    }
+}
+
 #pragma mark - IBActions
 
 - (IBAction)refresh:(UIRefreshControl *)sender
 {
 	// Refreshing...
     NSLog(@"Refreshing...");
+	
+	if (!self.internetActive && !self.hostActive)
+	{
+		NSLog(@"No internet");
+		return;
+	}
 	
 	self.foundSubjects = NO;
 	[self.courses removeAllObjects];
