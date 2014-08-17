@@ -1,0 +1,27 @@
+
+/* Class = "IBUILabel"; text = "Subject"; ObjectID = "0rf-hf-oLC"; */
+"0rf-hf-oLC.text" = "Vak";
+
+/* Class = "IBUILabel"; text = "No subject found."; ObjectID = "3un-kU-POu"; */
+"3un-kU-POu.text" = "Geen vakken gevonden.";
+
+/* Class = "IBUINavigationItem"; title = "Time Table"; ObjectID = "6Al-V6-ixT"; */
+"6Al-V6-ixT.title" = "Rooster";
+
+/* Class = "IBUILabel"; text = "sTime"; ObjectID = "H5D-EX-BXz"; */
+"H5D-EX-BXz.text" = "sTijd";
+
+/* Class = "IBUILabel"; text = "eTime"; ObjectID = "ODw-2U-YV2"; */
+"ODw-2U-YV2.text" = "eTijd";
+
+/* Class = "IBUIButton"; normalTitle = "Login"; ObjectID = "bK3-gO-MHD"; */
+"bK3-gO-MHD.normalTitle" = "Log in";
+
+/* Class = "IBUILabel"; text = "Location & teacher"; ObjectID = "eyt-u9-Zbf"; */
+"eyt-u9-Zbf.text" = "Locatie & leraar";
+
+/* Class = "IBUINavigationItem"; title = "Time Table"; ObjectID = "nwH-0Q-egc"; */
+"nwH-0Q-egc.title" = "Rooster";
+
+/* Class = "IBUIBarButtonItem"; title = "Logout"; ObjectID = "vR5-7O-xao"; */
+"vR5-7O-xao.title" = "Log uit";

@@ -231,8 +231,6 @@ didReceiveResponse:(NSURLResponse *)response
         }
 	}
 	
-	//[self.destructingClasses removeObjectAtIndex:0];
-	
 	[self.tableView reloadData];
 }
 
@@ -294,7 +292,12 @@ titleForHeaderInSection:(NSInteger)section
 	NSInteger daysToMonday = (9 - weekdayToday) % 7;
 	
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-	[formatter setDateFormat:@"EEEE dd MMM"];
+	[formatter setDateFormat:@"EEEE dd MMMM"];
+	
+	NSString *languageID = [[NSBundle mainBundle] preferredLocalizations].firstObject;
+	NSLocale *locale = [NSLocale localeWithLocaleIdentifier:languageID];
+	
+	formatter.locale = locale;
 	
 	NSDateFormatter *apiFormat = [[NSDateFormatter alloc] init];
 	[apiFormat setDateFormat:@"yyyyMMdd"];
@@ -374,8 +377,6 @@ titleForHeaderInSection:(NSInteger)section
 	{
 		BTBSubjectTableViewCell *emptyCell = [tableView dequeueReusableCellWithIdentifier:@"NoSubjectCell"
 																			 forIndexPath:indexPath];
-		
-		emptyCell.noSubjectLabel.text = @"No subject found.";
 		
 		return emptyCell;
 	}

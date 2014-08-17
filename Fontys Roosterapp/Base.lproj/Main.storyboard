@@ -30,7 +30,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bK3-gO-MHD">
-                                <rect key="frame" x="141" y="221" width="38" height="30"/>
+                                <rect key="frame" x="20" y="221" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,12 +46,12 @@
                             <constraint firstAttribute="trailing" secondItem="ucK-u6-46x" secondAttribute="trailing" constant="20" id="IWC-vF-tfw"/>
                             <constraint firstItem="Tt6-zb-i2B" firstAttribute="leading" secondItem="uzf-4b-HeG" secondAttribute="leading" constant="20" id="JXb-C1-Jqo"/>
                             <constraint firstItem="Tt6-zb-i2B" firstAttribute="top" secondItem="KbN-gX-8YP" secondAttribute="bottom" constant="145" id="K3J-lh-IhV"/>
+                            <constraint firstAttribute="trailing" secondItem="bK3-gO-MHD" secondAttribute="trailing" constant="20" id="RIG-ho-Xqn"/>
                             <constraint firstItem="ucK-u6-46x" firstAttribute="leading" secondItem="uzf-4b-HeG" secondAttribute="leading" constant="20" id="Yb2-ir-YYo"/>
                             <constraint firstAttribute="trailing" secondItem="Tt6-zb-i2B" secondAttribute="trailing" constant="20" id="aNJ-8o-O3y"/>
-                            <constraint firstAttribute="trailing" secondItem="bK3-gO-MHD" secondAttribute="trailing" constant="141" id="ex4-UI-t7a"/>
-                            <constraint firstItem="bK3-gO-MHD" firstAttribute="leading" secondItem="uzf-4b-HeG" secondAttribute="leading" constant="141" id="gdc-A2-wcr"/>
                             <constraint firstItem="bK3-gO-MHD" firstAttribute="top" secondItem="ucK-u6-46x" secondAttribute="bottom" constant="8" id="ifd-mf-91l"/>
                             <constraint firstItem="NXn-jr-yky" firstAttribute="top" secondItem="bK3-gO-MHD" secondAttribute="bottom" constant="253" id="lgW-4E-9IU"/>
+                            <constraint firstItem="bK3-gO-MHD" firstAttribute="leading" secondItem="uzf-4b-HeG" secondAttribute="leading" constant="20" id="sFM-Hk-cEk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Time Table" id="nwH-0Q-egc"/>
