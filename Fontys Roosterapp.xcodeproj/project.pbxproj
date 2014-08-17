@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		4919B6F719992B1C00C50754 /* BTBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4919B6F619992B1C00C50754 /* BTBLoginViewController.m */; };
 		491D885A19A016F0003D08A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 491D885C19A016F0003D08A8 /* Main.storyboard */; };
+		49675A2B19A0C64A00FF71A0 /* BTBCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 49675A2A19A0C64A00FF71A0 /* BTBCourse.m */; };
 		A712523D1998ADC4002D7444 /* BTBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A712523C1998ADC4002D7444 /* BTBUser.m */; };
 		A76C053719980CED00C3663C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A76C053619980CED00C3663C /* Settings.bundle */; };
-		A78940AC1998B7D000A4D026 /* BTBCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = A78940AB1998B7D000A4D026 /* BTBCourse.m */; };
 		A78940AF1998BE3D00A4D026 /* BTBSubjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78940AE1998BE3D00A4D026 /* BTBSubjectTableViewCell.m */; };
 		A7E74BA41997F48200F5D3FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA31997F48200F5D3FB /* Foundation.framework */; };
 		A7E74BA61997F48200F5D3FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E74BA51997F48200F5D3FB /* CoreGraphics.framework */; };
@@ -43,11 +43,11 @@
 		4919B6F619992B1C00C50754 /* BTBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBLoginViewController.m; sourceTree = "<group>"; };
 		491D885B19A016F0003D08A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		491D885D19A016F5003D08A8 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nl; path = nl.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49675A2919A0C64A00FF71A0 /* BTBCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBCourse.h; sourceTree = "<group>"; };
+		49675A2A19A0C64A00FF71A0 /* BTBCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBCourse.m; sourceTree = "<group>"; };
 		A712523B1998ADC4002D7444 /* BTBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBUser.h; sourceTree = "<group>"; };
 		A712523C1998ADC4002D7444 /* BTBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBUser.m; sourceTree = "<group>"; };
 		A76C053619980CED00C3663C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
-		A78940AA1998B7D000A4D026 /* BTBCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BTBCourse.h; path = ../BTBCourse.h; sourceTree = "<group>"; };
-		A78940AB1998B7D000A4D026 /* BTBCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BTBCourse.m; path = ../BTBCourse.m; sourceTree = "<group>"; };
 		A78940AD1998BE3D00A4D026 /* BTBSubjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBSubjectTableViewCell.h; sourceTree = "<group>"; };
 		A78940AE1998BE3D00A4D026 /* BTBSubjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBSubjectTableViewCell.m; sourceTree = "<group>"; };
 		A7E74BA01997F48200F5D3FB /* Fontys Roosterapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fontys Roosterapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,8 +119,8 @@
 		A712523E1998ADD5002D7444 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A78940AA1998B7D000A4D026 /* BTBCourse.h */,
-				A78940AB1998B7D000A4D026 /* BTBCourse.m */,
+				49675A2919A0C64A00FF71A0 /* BTBCourse.h */,
+				49675A2A19A0C64A00FF71A0 /* BTBCourse.m */,
 				A712523B1998ADC4002D7444 /* BTBUser.h */,
 				A712523C1998ADC4002D7444 /* BTBUser.m */,
 			);
@@ -303,9 +303,9 @@
 			files = (
 				A7E74BDC1997F73700F5D3FB /* BTBCourseTableViewController.m in Sources */,
 				A7E74BB01997F48200F5D3FB /* main.m in Sources */,
-				A78940AC1998B7D000A4D026 /* BTBCourse.m in Sources */,
 				4919B6F719992B1C00C50754 /* BTBLoginViewController.m in Sources */,
 				A7E74BB41997F48200F5D3FB /* BTBAppDelegate.m in Sources */,
+				49675A2B19A0C64A00FF71A0 /* BTBCourse.m in Sources */,
 				A712523D1998ADC4002D7444 /* BTBUser.m in Sources */,
 				A78940AF1998BE3D00A4D026 /* BTBSubjectTableViewCell.m in Sources */,
 			);
