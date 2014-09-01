@@ -397,6 +397,7 @@ titleForHeaderInSection:(NSInteger)section
 				switch (section)
 				{
 					case 0:
+						// Monday
 						[self.courseMonday addObject:course];
 						break;
 						

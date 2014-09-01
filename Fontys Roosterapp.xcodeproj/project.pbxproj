@@ -12,6 +12,7 @@
 		4960712119A0F66F00C2E73C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4960712019A0F66F00C2E73C /* Security.framework */; };
 		4960712419A0F7FF00C2E73C /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4960712319A0F7FF00C2E73C /* KeychainItemWrapper.m */; };
 		49675A2B19A0C64A00FF71A0 /* BTBCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 49675A2A19A0C64A00FF71A0 /* BTBCourse.m */; };
+		4976322119B4A7AE003CDDDB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4976322319B4A7AE003CDDDB /* Localizable.strings */; };
 		4981AD9819A12707007DD6C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4981AD9719A12707007DD6C9 /* SystemConfiguration.framework */; };
 		4981AD9B19A12741007DD6C9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 4981AD9A19A12741007DD6C9 /* Reachability.m */; };
 		A712523D1998ADC4002D7444 /* BTBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A712523C1998ADC4002D7444 /* BTBUser.m */; };
@@ -50,6 +51,8 @@
 		4960712319A0F7FF00C2E73C /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		49675A2919A0C64A00FF71A0 /* BTBCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBCourse.h; sourceTree = "<group>"; };
 		49675A2A19A0C64A00FF71A0 /* BTBCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBCourse.m; sourceTree = "<group>"; };
+		4976322219B4A7AE003CDDDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4976322419B4A7B9003CDDDB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4981AD9719A12707007DD6C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4981AD9919A12741007DD6C9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		4981AD9A19A12741007DD6C9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -195,6 +198,7 @@
 				A76C053619980CED00C3663C /* Settings.bundle */,
 				A7E74BBB1997F48200F5D3FB /* Images.xcassets */,
 				A7E74BAA1997F48200F5D3FB /* Supporting Files */,
+				4976322319B4A7AE003CDDDB /* Localizable.strings */,
 			);
 			path = "Fontys Roosterapp";
 			sourceTree = "<group>";
@@ -306,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4976322119B4A7AE003CDDDB /* Localizable.strings in Resources */,
 				A76C053719980CED00C3663C /* Settings.bundle in Resources */,
 				A7E74BBC1997F48200F5D3FB /* Images.xcassets in Resources */,
 				A7E74BAE1997F48200F5D3FB /* InfoPlist.strings in Resources */,
@@ -366,6 +371,15 @@
 				49989F4E19A11FD500DEACF5 /* nl */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4976322319B4A7AE003CDDDB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4976322219B4A7AE003CDDDB /* Base */,
+				4976322419B4A7B9003CDDDB /* nl */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		A7E74BAC1997F48200F5D3FB /* InfoPlist.strings */ = {
