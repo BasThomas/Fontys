@@ -112,13 +112,11 @@
 	
 	if ([components weekday] == 1 || [components weekday] == 7)
 	{
-		//sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + 14)];
 		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * daysToMonday];
 		self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
 	}
 	else
 	{
-		//sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (-daysToMonday + 14)];
 		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -daysToMonday];
 		self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
 	}
@@ -364,9 +362,6 @@ titleForHeaderInSection:(NSInteger)section
 	components = [calendar components:NSWeekdayCalendarUnit
 							 fromDate:today];
 	
-	NSUInteger weekdayToday = [components weekday];
-	NSInteger daysToMonday = (9 - weekdayToday) % 7;
-	
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"EEEE dd MMMM"];
 	
@@ -382,16 +377,8 @@ titleForHeaderInSection:(NSInteger)section
 	
 	[self currentWeek];
 	
-	if ([components weekday] == 1 || [components weekday] == 7)
-	{
-		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday + section)];
-		return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-	}
-	else
-	{
-		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -(daysToMonday + section)];
-		return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
-	}
+	sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * section];
+	return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
