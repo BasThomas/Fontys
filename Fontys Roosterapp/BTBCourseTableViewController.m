@@ -35,7 +35,7 @@
 			self.apiKey = @"f4IcdWfO7U2UcjGpIPjMGA";
 			self.institute = @"FHI";
 			
-			self.timetableClasses = [NSMutableArray arrayWithObjects:@"sm32", @"s32", nil];
+			self.timetableClasses = [NSMutableArray arrayWithObjects:@"sm41", @"s32", nil];
 			self.destructingClasses = [[NSMutableArray alloc] initWithArray:self.timetableClasses copyItems:YES];
 			
 			[self currentWeek];
@@ -355,13 +355,7 @@ didReceiveResponse:(NSURLResponse *)response
 
 - (NSString *)tableView:(UITableView *)tableView
 titleForHeaderInSection:(NSInteger)section
-{
-	NSDate *today = [[NSDate alloc] init];
-	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-	NSDateComponents *components = [[NSDateComponents alloc] init];
-	components = [calendar components:NSWeekdayCalendarUnit
-							 fromDate:today];
-	
+{	
 	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateFormat:@"EEEE dd MMMM"];
 	
@@ -373,11 +367,10 @@ titleForHeaderInSection:(NSInteger)section
 	NSDateFormatter *apiFormat = [[NSDateFormatter alloc] init];
 	[apiFormat setDateFormat:@"yyyyMMdd"];
 	
-	NSDate *sectionDate = [[NSDate alloc] init];
+	NSDate *sectionDate = [apiFormat dateFromString:self.week];
+	NSLog(@"%@", sectionDate);
 	
-	[self currentWeek];
-	
-	sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * section];
+	sectionDate = [sectionDate dateByAddingTimeInterval:60 * 60 * 24 * section];
 	return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
 }
 

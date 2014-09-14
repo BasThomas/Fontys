@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>0DDF0B1F-364C-4739-B18B-E30B24782C96</string>
+	<string>537CB6F2-E593-4FDC-A438-73914990F3C6</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Fontys Roosterapp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>63456796-F1B7-4939-B811-4EF38979EF65</key>
+		<key>212B2F699164954E157B0FC172CD1482EF6E9603</key>
 		<string>https://github.com/BasThomas/Fontys.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Fontys Roosterapp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>63456796-F1B7-4939-B811-4EF38979EF65</key>
+		<key>212B2F699164954E157B0FC172CD1482EF6E9603</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/BasThomas/Fontys.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>63456796-F1B7-4939-B811-4EF38979EF65</string>
+	<string>212B2F699164954E157B0FC172CD1482EF6E9603</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>63456796-F1B7-4939-B811-4EF38979EF65</string>
+			<string>212B2F699164954E157B0FC172CD1482EF6E9603</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Fontys</string>
 		</dict>

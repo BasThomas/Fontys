@@ -70,7 +70,6 @@
 		A7E74BA51997F48200F5D3FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A7E74BA71997F48200F5D3FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A7E74BAB1997F48200F5D3FB /* Fontys Roosterapp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fontys Roosterapp-Info.plist"; sourceTree = "<group>"; };
-		A7E74BAD1997F48200F5D3FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7E74BAF1997F48200F5D3FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A7E74BB11997F48200F5D3FB /* Fontys Roosterapp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fontys Roosterapp-Prefix.pch"; sourceTree = "<group>"; };
 		A7E74BB21997F48200F5D3FB /* BTBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTBAppDelegate.h; sourceTree = "<group>"; };
@@ -79,7 +78,6 @@
 		A7E74BC11997F48200F5D3FB /* Fontys RoosterappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fontys RoosterappTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7E74BC21997F48200F5D3FB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A7E74BCA1997F48200F5D3FB /* Fontys RoosterappTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fontys RoosterappTests-Info.plist"; sourceTree = "<group>"; };
-		A7E74BCC1997F48200F5D3FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7E74BCE1997F48200F5D3FB /* Fontys_RoosterappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fontys_RoosterappTests.m; sourceTree = "<group>"; };
 		A7E74BDA1997F73700F5D3FB /* BTBCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBCourseTableViewController.h; sourceTree = "<group>"; };
 		A7E74BDB1997F73700F5D3FB /* BTBCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBCourseTableViewController.m; sourceTree = "<group>"; };
@@ -385,7 +383,6 @@
 		A7E74BAC1997F48200F5D3FB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A7E74BAD1997F48200F5D3FB /* en */,
 				49989F4F19A11FD500DEACF5 /* nl */,
 			);
 			name = InfoPlist.strings;
@@ -394,7 +391,6 @@
 		A7E74BCB1997F48200F5D3FB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A7E74BCC1997F48200F5D3FB /* en */,
 				49989F5019A11FD500DEACF5 /* nl */,
 			);
 			name = InfoPlist.strings;
