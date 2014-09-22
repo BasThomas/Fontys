@@ -103,6 +103,7 @@
 							 fromDate:today];
 	
 	NSUInteger weekdayToday = [components weekday];
+	NSLog(@"Weekday today: %d", weekdayToday);
 	NSInteger daysToMonday = (9 - weekdayToday) % 7;
 	
 	NSDateFormatter *apiFormat = [[NSDateFormatter alloc] init];
@@ -117,8 +118,16 @@
 	}
 	else
 	{
-		sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * -daysToMonday];
-		self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
+		if (daysToMonday != 0)
+		{
+			sectionDate = [today dateByAddingTimeInterval:60 * 60 * 24 * (daysToMonday -7)];
+			self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
+		}
+		else
+		{
+			sectionDate = today;
+			self.week = [NSString stringWithFormat:@"%@", [apiFormat stringFromDate:sectionDate]];
+		}
 	}
 	
 	return self.week;
@@ -368,7 +377,6 @@ titleForHeaderInSection:(NSInteger)section
 	[apiFormat setDateFormat:@"yyyyMMdd"];
 	
 	NSDate *sectionDate = [apiFormat dateFromString:self.week];
-	NSLog(@"%@", sectionDate);
 	
 	sectionDate = [sectionDate dateByAddingTimeInterval:60 * 60 * 24 * section];
 	return [NSString stringWithFormat:@"%@", [formatter stringFromDate:sectionDate]];
